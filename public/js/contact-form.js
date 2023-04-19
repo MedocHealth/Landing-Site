@@ -1,3 +1,6 @@
+// const { json } = require("body-parser");
+// const { application } = require("express");
+
 // JavaScript Document
 $(document).ready(function() {
 
@@ -8,7 +11,7 @@ $(document).ready(function() {
         var name = $(".name");
         var email = $(".email");
         var subject = $(".subject");
-        var msg = $(".message");
+        var msg  = $(".message");
         var flag = false;
         if (name.val() == "") {
             name.closest(".form-control").addClass("error");
@@ -40,7 +43,7 @@ $(document).ready(function() {
         $.ajax({
             type: "POST",
             data: dataString,
-            url: "php/contact.php",
+            url: "/send-email",
             cache: false,
             success: function(d) {
                 $(".form-control").removeClass("success");
@@ -58,4 +61,4 @@ $(document).ready(function() {
         $(".form-control").removeClass("success").removeClass("error");
     });
 
-})
+});
