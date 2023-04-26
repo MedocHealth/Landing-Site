@@ -1,6 +1,6 @@
 // const { json } = require("body-parser");
 // const { application } = require("express");
-
+<script src="https://formspree.io/js/formbutton-v1.min.js" defer></script>
 // JavaScript Document
 $(document).ready(function() {
 
@@ -12,7 +12,8 @@ $(document).ready(function() {
         var email = $(".email");
         var subject = $(".subject");
         var msg  = $(".message");
-        var flag = false;
+        // var flag = false;
+        var flag = true;
         if (name.val() == "") {
             name.closest(".form-control").addClass("error");
             name.focus();
@@ -38,6 +39,7 @@ $(document).ready(function() {
             msg.closest(".form-control").removeClass("error").addClass("success");
             flag = true;
         }
+        if(flag){
         var dataString = "name=" + name.val() + "&email=" + email.val() + "&subject=" + subject.val() + "&msg=" + msg.val();
         $(".loading").fadeIn("slow").html("Loading...");
         $.ajax({
@@ -55,6 +57,7 @@ $(document).ready(function() {
 
             }
         });
+    }
         return false;
     });
     $("#reset").on('click', function() {
