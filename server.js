@@ -15,7 +15,7 @@ app.use(bodyParser.urlencoded({
 
 
 app.get("/", function(req,res){
-    res.render("home");
+    res.sendFile(__dirname + "/index.html");
 });
 // app.post("/", function(req,res){
 // console.log(req.body);
