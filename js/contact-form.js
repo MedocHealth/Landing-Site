@@ -49,11 +49,15 @@ $(document).ready(function() {
             cache: false,
             success: function(d) {
                 $(".form-control").removeClass("success");
-                if (d == 'success') // Message Sent? Show the 'Thank You' message and hide the form
+                if (d == 'success'){
                     $('.loading').fadeIn('slow').html('<font color="#48af4b">Mail sent Successfully.</font>').delay(3000).fadeOut('slow');
-
-                else
+                    $(".contact-form")[0].reset();
+                } // Message Sent? Show the 'Thank You' message and hide the form
+                    
+                else{
                     $('.loading').fadeIn('slow').html('<font color="#ff5607">Mail not sent.</font>').delay(3000).fadeOut('slow');
+                }
+                   
 
             }
         });
@@ -62,6 +66,7 @@ $(document).ready(function() {
     });
     $("#reset").on('click', function() {
         $(".form-control").removeClass("success").removeClass("error");
+        $(".contact-form")[0].reset();
     });
-
+    
 });
